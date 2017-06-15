@@ -1,0 +1,6 @@
+framework module DocuSignESign {
+  umbrella header "DocuSignESign-umbrella.h"
+
+  export *
+  module * { export * }
+}
