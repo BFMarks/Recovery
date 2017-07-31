@@ -11,12 +11,12 @@ import UIKit
 import Foundation
 import AVKit
 import AVFoundation
-import PubNub
-import Alamofire
+//import PubNub
+//import Alamofire
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var newHeader:[String] = ["Your Next Visit is Wednesday Feb, 15th at 2pm"]
+    var newHeader:[String] = ["Your Next Visit is Wednesday August, 19th at 2pm"]
     @IBOutlet var tableView: UITableView!
     
    
@@ -24,7 +24,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     var  nameArray:[String] = []
     var  videoArray:[String] = []
     
-    var dummyArray:[String] = ["Wednesday Feb, 15th at 2pm","Thursday Feb, 16th at 1pm", "Friday Feb, 17th at 10am" ]
+    var dummyArray:[String] = ["Wednesday August, 19th at 5pm","Thursday August, 20th at 1pm", "Friday August, 21st at 10am" ]
     var dummyArray2:[String] = ["One Time Available","One Time Available" , "One Time Available"]
     
     //    var customInterface: UIView!
@@ -33,7 +33,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        getJSONFromServer()
+//        getJSONFromServer()
         
         var trackerParametersDictionary: [AnyHashable: Any] = [:]
         trackerParametersDictionary[kKVAParamAppGUIDStringKey] = "korecoveryai-51f"
@@ -155,30 +155,33 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let alert = UIAlertController(title: "Appointment", message: "We've Requested That Time For Your Physical Therapist.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
-        let submitTime:[String] = ["date"]
-        
-        print("%%%%TEST")
-        
-        //READY FOR CHECHO BACKEND
-        let params: [String: AnyObject] = ["timeSlot": submitTime as AnyObject]
-        let request = Alamofire.request("https://yourServiceURL.com", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
-            
-            switch(response.result) {
-            case .success(_):
-                if response.result.value != nil{
-                    print(response.result.value)
-                }
-                break
-                
-            case .failure(_):
-                print(response.result.error)
-                break
-                
-            }
-        }
-        
-        request.validate()
+//        let submitTime:[String] = ["date"]
+//        
+//        print("%%%%TEST")
+//        
+//        //READY FOR CHECHO BACKEND
+//        let params: [String: AnyObject] = ["timeSlot": submitTime as AnyObject]
+//        let request = Alamofire.request("https://yourServiceURL.com", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
+//            
+//            switch(response.result) {
+//            case .success(_):
+//                if response.result.value != nil{
+//                    print(response.result.value)
+//                }
+//                break
+//                
+//            case .failure(_):
+//                print(response.result.error)
+//                break
+//                
+//            }
+//        }
+//        
+//        request.validate()
 //        let alert: UIAlertView = UIAlertView(title: "Your Appointment Has Been Requested", message: "Our staff will email and text you soon to confirm your time", delegate: nil, cancelButtonTitle: "Ok");
 //        
 //        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:50 ,y: 10,width: 37,height: 37)) as UIActivityIndicatorView
@@ -192,17 +195,17 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 //        
 //        alert.show()
 //        
-        let refreshAlert = UIAlertController(title: "Your Appointment Has Been Requested", message: "Our staff will email and text you soon to confirm your time.  Are you sure you want to schedule this time?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
+//        let refreshAlert = UIAlertController(title: "Your Appointment Has Been Requested", message: "Our staff will email and text you soon to confirm your time.  Are you sure you want to schedule this time?", preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+//            print("Handle Ok logic here")
+//        }))
+//        
+//        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+//            print("Handle Cancel Logic here")
+//        }))
+//        
+//        present(refreshAlert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -225,40 +228,40 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
  
-    func getJSONFromServer() {
-        
-        
-        let api = API()
-        let variableString: String = "videos"
-        api.getOrders(section: variableString) { responseObject, error in
-            print("responseObject = \(responseObject); error = \(error)")
-            if let JSON = responseObject {
-                print("JSON is \(JSON)")
-                let found = JSON["data"] as? [AnyObject]
-                print("found is \(found)")
-                for item in found! {
-                    let string = item["description"]!
-                    let name = item["name"]
-                    let video = item["url"]!
-                    print("String is \(string!)")
-                    self.descriptionArray.append(string as! String)
-                    self.nameArray.append(name as! String)
-                    self.videoArray.append(video as! String)
-                    
-                    
-                }
-
-                
-                
-            }  else if error != nil {
-                //                self.newHeader[0] = "Please Connect To The Internet"
-                self.descriptionArray.append(contentsOf: ["*Make sure to allow access in settings!*" ])
-                
-            }
-            self.tableView.reloadData()
-        }
-        
-    }
+//    func getJSONFromServer() {
+//        
+//        
+//        let api = API()
+//        let variableString: String = "videos"
+//        api.getOrders(section: variableString) { responseObject, error in
+//            print("responseObject = \(responseObject); error = \(error)")
+//            if let JSON = responseObject {
+//                print("JSON is \(JSON)")
+//                let found = JSON["data"] as? [AnyObject]
+//                print("found is \(found)")
+//                for item in found! {
+//                    let string = item["description"]!
+//                    let name = item["name"]
+//                    let video = item["url"]!
+//                    print("String is \(string!)")
+//                    self.descriptionArray.append(string as! String)
+//                    self.nameArray.append(name as! String)
+//                    self.videoArray.append(video as! String)
+//                    
+//                    
+//                }
+//
+//                
+//                
+//            }  else if error != nil {
+//                //                self.newHeader[0] = "Please Connect To The Internet"
+//                self.descriptionArray.append(contentsOf: ["*Make sure to allow access in settings!*" ])
+//                
+//            }
+//            self.tableView.reloadData()
+//        }
+//        
+//    }
     
     
     

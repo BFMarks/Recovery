@@ -100,35 +100,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sui-sn-bbq">
-                                            <rect key="frame" x="21" y="8" width="331" height="33"/>
+                                            <rect key="frame" x="21" y="8" width="331" height="31.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7i-e6-Ddk">
-                                            <rect key="frame" x="306" y="67" width="46" height="30"/>
+                                            <rect key="frame" x="322" y="65.5" width="30" height="33"/>
                                             <connections>
                                                 <action selector="submitTime:" destination="r78-9J-o2j" eventType="touchUpInside" id="Smd-ls-P5r"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="EHb-3f-fUf">
-                                            <rect key="frame" x="310" y="62" width="39" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="eTZ-Bx-jGt"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sui-sn-bbq" firstAttribute="trailing" secondItem="Y7i-e6-Ddk" secondAttribute="trailing" id="0V4-V3-eit"/>
-                                        <constraint firstItem="Y7i-e6-Ddk" firstAttribute="centerY" secondItem="EHb-3f-fUf" secondAttribute="centerY" id="CVF-ic-yZ2"/>
-                                        <constraint firstItem="EHb-3f-fUf" firstAttribute="centerX" secondItem="Y7i-e6-Ddk" secondAttribute="centerX" id="Fra-u7-qNr"/>
                                         <constraint firstItem="sui-sn-bbq" firstAttribute="leading" secondItem="BHv-q1-QZa" secondAttribute="leadingMargin" constant="13" id="HU3-tl-bCq"/>
-                                        <constraint firstItem="EHb-3f-fUf" firstAttribute="top" secondItem="sui-sn-bbq" secondAttribute="bottom" constant="21" id="Muh-1T-z9n"/>
                                         <constraint firstItem="Y7i-e6-Ddk" firstAttribute="centerY" secondItem="BHv-q1-QZa" secondAttribute="centerY" id="YAp-wp-fTJ"/>
                                         <constraint firstItem="Y7i-e6-Ddk" firstAttribute="top" secondItem="sui-sn-bbq" secondAttribute="bottom" constant="26" id="oBN-5U-lRJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="sui-sn-bbq" secondAttribute="trailing" constant="15" id="oVM-BR-FcS"/>
                                         <constraint firstItem="sui-sn-bbq" firstAttribute="top" secondItem="BHv-q1-QZa" secondAttribute="topMargin" id="qWr-e2-FTD"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="EHb-3f-fUf" secondAttribute="trailing" constant="18" id="xah-Eb-uYy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -307,7 +297,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="pushNotification:" destination="pIa-cW-30q" eventType="touchUpInside" id="w1x-Vm-kYo"/>
+                                    <action selector="setReminder:" destination="pIa-cW-30q" eventType="touchUpInside" id="zaN-Y8-OL2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -370,7 +360,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="30" height="30"/>
         <image name="appoint" width="25" height="34"/>
         <image name="easy" width="30" height="31"/>
         <image name="hard" width="35" height="27"/>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "62D46C8C56D8D16A05405ECD5140CE1C"
+               BlueprintIdentifier = "63AC148B90081C5038251E8DF1FEEE67"
                BuildableName = "Pods_RecoveryAI.framework"
                BlueprintName = "Pods-RecoveryAI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "62D46C8C56D8D16A05405ECD5140CE1C"
+            BlueprintIdentifier = "63AC148B90081C5038251E8DF1FEEE67"
             BuildableName = "Pods_RecoveryAI.framework"
             BlueprintName = "Pods-RecoveryAI"
             ReferencedContainer = "container:Pods.xcodeproj">

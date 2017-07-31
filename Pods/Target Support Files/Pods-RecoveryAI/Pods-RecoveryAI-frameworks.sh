@@ -89,22 +89,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/DocuSignESign/DocuSignESign.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ISO8601/ISO8601.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/JSONModel/JSONModel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PubNub/PubNub.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftCharts/SwiftCharts.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UrbanAirship-iOS-SDK/AirshipKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/DocuSignESign/DocuSignESign.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ISO8601/ISO8601.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/JSONModel/JSONModel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PubNub/PubNub.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftCharts/SwiftCharts.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UrbanAirship-iOS-SDK/AirshipKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

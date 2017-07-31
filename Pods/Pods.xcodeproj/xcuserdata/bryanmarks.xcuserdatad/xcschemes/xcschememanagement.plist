@@ -4,27 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>DocuSignESign.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ISO8601.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,7 +19,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftCharts.xcscheme</key>
+		<key>UrbanAirship-iOS-SDK-AirshipResources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UrbanAirship-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,27 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1ED8BE8BD6A53853974A60E1AC8B1019</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4A3F3759C743DD9B81093678EED83F69</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>594021171CAF3C22B14E449EAF203755</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>62D46C8C56D8D16A05405ECD5140CE1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>79D5F2F805FAA0A354366CA6B6199CE1</key>
+		<key>63AC148B90081C5038251E8DF1FEEE67</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A7F393B66CE6EBEAC1E20B41704DBD7</key>
+		<key>8D62F087F8916F01D9FB5EA73710C006</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8F69EA31FE1AEE7A3F69AB9982D98D1</key>
+		<key>93BFD096839E6711E2132C1E2CF23034</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1F729733B322D0DAB55E7B952DB0410</key>
 		<dict>
 			<key>primary</key>
 			<true/>

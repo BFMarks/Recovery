@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import AVKit
 import AVFoundation
-import PubNub
+
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -36,7 +36,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //        ading the view, typically from a nib.
 //                self.view.addSubview(customInterface)
 //        view.addSubview(tableView)
-            getJSONFromServer()
+//            getJSONFromServer()
           }
     
 
@@ -156,6 +156,18 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    private  func playVideo(video: String) {
+        guard let path = Bundle.main.path(forResource: video, ofType:"m4v") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -163,17 +175,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("Button tapped")
 
         
-        let videoString:String = self.videoArray[indexPath.row]
-         let videoURL = NSURL(string: videoString )
-        let player = AVPlayer(url: (videoURL as? URL)!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
-        }
-        
-        
+//        let videoString:String = self.videoArray[indexPath.row]
+//         let videoURL = NSURL(string: videoString )
+//        let player = AVPlayer(url: (videoURL as URL?)!)
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//        self.present(playerViewController, animated: true) {
+//            playerViewController.player!.play()
+//        }
+//        
+//        
       
+//        super.viewDidAppear(animated)
+        
+        let movArray = ["cptvid03aarom", "cpt050930A-F-IAS","cptvid03aarom", "cpt050930A-F-IAS"]
+        playVideo(video: movArray[indexPath.row])
+        
+       
+        
+        
         print("You selected cell #\(indexPath.row)!")
 //        let proxy = textDocumentProxy as UITextDocumentProxy
 //        let text = self.newArray[indexPath.row]
@@ -198,40 +218,40 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //        return
 //    }
 //    
-    func getJSONFromServer() {
-        //        self.newHeader[0] = "Welcome Juli"
-        
-        let api = API()
-        let variableString: String = "videos"
-        api.getOrders(section: variableString) { responseObject, error in
-            print("responseObject = \(responseObject); error = \(error)")
-            if let JSON = responseObject {
-                print("JSON is \(JSON)")
-                let found = JSON["data"] as? [AnyObject]
-                print("found is \(found)")
-                for item in found! {
-                    let string = item["description"]!
-                    let name = item["name"]
-                    let video = item["url"]!
-                    print("String is \(string!)")
-//                    self.descriptionArray.append(string as! String)
-                    self.nameArray.append(name as! String)
-                    self.videoArray.append(video as! String)
-                    
-                    
-                }
-                print("DFASJFDASFDDFDFSAFSD")
-                
-//                self.tableView.reloadData()
-            }  else if error != nil {
-                //                self.newHeader[0] = "Please Connect To The Internet"
-                self.descriptionArray.append(contentsOf: ["*Make sure to allow access in settings!*" ])
-                
-            }
-            self.tableView.reloadData()
-        }
-        
-    }
+//    func getJSONFromServer() {
+//        //        self.newHeader[0] = "Welcome Juli"
+//        
+//        let api = API()
+//        let variableString: String = "videos"
+//        api.getOrders(section: variableString) { responseObject, error in
+//            print("responseObject = \(responseObject); error = \(error)")
+//            if let JSON = responseObject {
+//                print("JSON is \(JSON)")
+//                let found = JSON["data"] as? [AnyObject]
+//                print("found is \(found)")
+//                for item in found! {
+//                    let string = item["description"]!
+//                    let name = item["name"]
+//                    let video = item["url"]!
+//                    print("String is \(string!)")
+////                    self.descriptionArray.append(string as! String)
+//                    self.nameArray.append(name as! String)
+//                    self.videoArray.append(video as! String)
+//                    
+//                    
+//                }
+//                print("DFASJFDASFDDFDFSAFSD")
+//                
+////                self.tableView.reloadData()
+//            }  else if error != nil {
+//                //                self.newHeader[0] = "Please Connect To The Internet"
+//                self.descriptionArray.append(contentsOf: ["*Make sure to allow access in settings!*" ])
+//                
+//            }
+//            self.tableView.reloadData()
+//        }
+//        
+//    }
     
     
 
@@ -245,23 +265,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let more = UITableViewRowAction(style: .normal, title: "No Affect") { action, index in
             
-            
-//            print("more button tapped")
-//            let progressHUD = ProgressHUD(text: "Sending Feedback")
-//            progressHUD.tag = 100
-//            self.view.addSubview(progressHUD)
-            ///// All done!
-//            
-//            Timer.scheduledTimer(withTimeInterval: 2, repeats: false){_ in
-//                func removeSubview(){
-//                    print("Start remove sibview")
-//                    if let viewWithTag = self.view.viewWithTag(100) {
-//                        viewWithTag.removeFromSuperview()
-//                    }else{
-//                        print("No!")
-//                    }
-//                }
-//            }
+            let alert = UIAlertController(title: "Feedback", message: "We've sent this feedback to your Physical Therapist", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
         }
         more.backgroundColor = UIColor.lightGray
@@ -273,6 +279,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //            self.view.addSubview(progressHUD)
             // All done!
             
+            let alert = UIAlertController(title: "Feedback", message: "We've sent this feedback to your Physical Therapist", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
             
         }
         favorite.backgroundColor = UIColor.red
@@ -282,6 +292,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //            let progressHUD = ProgressHUD(text: "Sending Feedback")
 //            self.view.addSubview(progressHUD)
             // All done!
+            let alert = UIAlertController(title: "Feedback", message: "We've sent this feedback to your Physical Therapist", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
 
         }
