@@ -9,13 +9,14 @@ target 'RecoveryAI' do
 #  pod 'Charts'
 #  pod 'RealmSwift'
 #  pod 'SwiftCharts'
-  pod "PubNub"
-  pod 'Alamofire'
+#  pod "PubNub"
+#  pod 'Alamofire'
 #  pod 'DocuSignESign'
-  pod "Button"
-#  pod 'AppsFlyerFramework', '~> 4.7'
+#  pod "Button"
+  pod 'AppsFlyerFramework'
   pod 'KochavaTrackeriOS'
   pod 'UrbanAirship-iOS-SDK'
+  pod 'Agora-Native-SDK-FULL'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

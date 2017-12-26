@@ -1,26 +1,21 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Button (5.12.1)
+  - Agora-Native-SDK-FULL (1.10.0)
+  - AppsFlyerFramework (4.7.11)
   - KochavaTrackeriOS (3.1.4)
-  - PubNub (4.6.1):
-    - PubNub/Core (= 4.6.1)
-  - PubNub/Core (4.6.1)
   - UrbanAirship-iOS-SDK (8.3.3)
 
 DEPENDENCIES:
-  - Alamofire
-  - Button
+  - Agora-Native-SDK-FULL
+  - AppsFlyerFramework
   - KochavaTrackeriOS
-  - PubNub
   - UrbanAirship-iOS-SDK
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Button: fb678e714e93875313322e129e4502b47223f1e7
+  Agora-Native-SDK-FULL: 9977426ad1c8ea3d54656d40f64af866a7d5d250
+  AppsFlyerFramework: ece902d4233177d4e9db1429c7a5df5fad8e9f07
   KochavaTrackeriOS: 5b0f27aed9692ea2295ac4609e1f5db7d46460c2
-  PubNub: 408ba6402a9c712418da738adda12ccc339cbb1e
   UrbanAirship-iOS-SDK: 51a0deb935d0be5905473654316ad1b6f09f3353
 
-PODFILE CHECKSUM: 0f3ec176e7fa3af9ea88c5ea65b8c5ede92f99d1
+PODFILE CHECKSUM: a66c5e5fe3b16924e3679271c3073817870ae0ba
 
 COCOAPODS: 1.2.0

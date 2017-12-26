@@ -1,12 +1,10 @@
-ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Alamofire" "$PODS_CONFIGURATION_BUILD_DIR/PubNub" "$PODS_CONFIGURATION_BUILD_DIR/UrbanAirship-iOS-SDK" "${PODS_ROOT}/Button"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/UrbanAirship-iOS-SDK" "${PODS_ROOT}/Agora-Native-SDK-FULL/Agora_Native_SDK_for_iOS_FULL/libs" "${PODS_ROOT}/AppsFlyerFramework"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Button" "${PODS_ROOT}/Headers/Public/KochavaTrackeriOS"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Agora-Native-SDK-FULL" "${PODS_ROOT}/Headers/Public/AppsFlyerFramework" "${PODS_ROOT}/Headers/Public/KochavaTrackeriOS"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/KochavaTrackeriOS/KochavaTrackeriOS/Libraries"
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PubNub/PubNub.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/UrbanAirship-iOS-SDK/AirshipKit.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Button" -isystem "${PODS_ROOT}/Headers/Public/KochavaTrackeriOS"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"KochavaTrackeriOS" -framework "AVFoundation" -framework "AdSupport" -framework "AirshipKit" -framework "Alamofire" -framework "Button" -framework "CoreLocation" -framework "Foundation" -framework "PubNub" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -framework "iAd"
-OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Agora-Native-SDK-FULL/Agora_Native_SDK_for_iOS_FULL/libs" $(inherited) "${PODS_ROOT}/KochavaTrackeriOS/KochavaTrackeriOS/Libraries"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/UrbanAirship-iOS-SDK/AirshipKit.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Agora-Native-SDK-FULL" -isystem "${PODS_ROOT}/Headers/Public/AppsFlyerFramework" -isystem "${PODS_ROOT}/Headers/Public/KochavaTrackeriOS"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"KochavaTrackeriOS" -l"c++" -l"crypto" -l"resolv" -framework "AVFoundation" -framework "AdSupport" -framework "AgoraRtcCryptoLoader" -framework "AgoraRtcEngineKit" -framework "AirshipKit" -framework "AppsFlyerLib" -framework "AudioToolbox" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreMotion" -framework "CoreTelephony" -framework "Foundation" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "VideoToolbox" -framework "WebKit" -framework "iAd"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

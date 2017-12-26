@@ -15,17 +15,17 @@ class AppointmentController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var trackerParametersDictionary: [AnyHashable: Any] = [:]
-        trackerParametersDictionary[kKVAParamAppGUIDStringKey] = "korecoveryai-51f"
-        
-        if let event = KochavaEvent(eventTypeEnum: .custom)
-        {
-            event.userIdString = "ABCDEF12345"
-            //            event.levelString = "1"
-            //            event.scoreString = "15500"
-            event.descriptionString = "reminder"
-            event.durationTimeIntervalNumber = 29.0
-        }
+//        var trackerParametersDictionary: [AnyHashable: Any] = [:]
+//        trackerParametersDictionary[kKVAParamAppGUIDStringKey] = "korecoveryai-51f"
+//        
+//        if let event = KochavaEvent(eventTypeEnum: .custom)
+//        {
+//            event.userIdString = "ABCDEF12345"
+//            //            event.levelString = "1"
+//            //            event.scoreString = "15500"
+//            event.descriptionString = "reminder"
+//            event.durationTimeIntervalNumber = 29.0
+//        }
         
         }
 

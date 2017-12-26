@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AC148B90081C5038251E8DF1FEEE67"
+               BlueprintIdentifier = "7967A55F286C2BD5B62E01220D7659FA"
                BuildableName = "Pods_RecoveryAI.framework"
                BlueprintName = "Pods-RecoveryAI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63AC148B90081C5038251E8DF1FEEE67"
+            BlueprintIdentifier = "7967A55F286C2BD5B62E01220D7659FA"
             BuildableName = "Pods_RecoveryAI.framework"
             BlueprintName = "Pods-RecoveryAI"
             ReferencedContainer = "container:Pods.xcodeproj">

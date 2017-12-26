@@ -12,5 +12,6 @@
 //#import "TrackAndAd.h"
 //#import "KochavaEvent.h"
 #import "KochavaTracker.h"
-
+#import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
+#import <AgoraRtcCryptoLoader/AgoraRtcCryptoLoader.h>
 #endif /* Bridging_Header_h */

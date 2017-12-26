@@ -16,16 +16,28 @@ import AVFoundation
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var newHeader:[String] = ["Your Next Visit is Wednesday August, 19th at 2pm"]
+    var newHeader:[String] = ["Available Times:"]
     @IBOutlet var tableView: UITableView!
+    
+    var tenDaysfromNow: Date {
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 10, to: Date(), options: [])!
+    }
+    
+    var fifteenDaysfromNow: Date {
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 15, to: Date(), options: [])!
+    }
+    
+    var twelvefromNow: Date {
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 12, to: Date(), options: [])!
+    }
     
    
     var descriptionArray:[String] = []
     var  nameArray:[String] = []
     var  videoArray:[String] = []
     
-    var dummyArray:[String] = ["Wednesday August, 19th at 5pm","Thursday August, 20th at 1pm", "Friday August, 21st at 10am" ]
-    var dummyArray2:[String] = ["One Time Available","One Time Available" , "One Time Available"]
+    
+    var dummyArray2:[String] = ["One Time Available","Two Times Available" , "One Time Available"]
     
     //    var customInterface: UIView!
     
@@ -36,19 +48,39 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 //        getJSONFromServer()
         
         var trackerParametersDictionary: [AnyHashable: Any] = [:]
-        trackerParametersDictionary[kKVAParamAppGUIDStringKey] = "korecoveryai-51f"
+//        trackerParametersDictionary[kKVAParamAppGUIDStringKey] = "korecoveryai-51f"
+//        
+//        if let event = KochavaEvent(eventTypeEnum: .custom)
+//        {
+//            event.userIdString = "ABCDEF12345"
+//            //            event.levelString = "1"
+//            //            event.scoreString = "15500"
+//            event.descriptionString = "pre-approved"
+//            event.durationTimeIntervalNumber = 29.0
+//        }
         
-        if let event = KochavaEvent(eventTypeEnum: .custom)
-        {
-            event.userIdString = "ABCDEF12345"
-            //            event.levelString = "1"
-            //            event.scoreString = "15500"
-            event.descriptionString = "pre-approved"
-            event.durationTimeIntervalNumber = 29.0
-        }
         
+//        let test = convertDateFormater(date:tenDaysfromNow)
+//        print("TEST \(test)")
     }
     
+    
+    func convertDateFormater(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        
+        guard let date = dateFormatter.date(from: date) else {
+            assert(false, "no date from string")
+            return ""
+        }
+        
+        dateFormatter.dateFormat = "yyyy MMM EEEE HH:mm"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        let timeStamp = dateFormatter.string(from: date)
+        
+        return timeStamp
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +95,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         
-        return self.dummyArray.count
+        return dummyArray2.count
     }
     
     
@@ -129,6 +161,16 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
+        let ten = String(describing: tenDaysfromNow)
+        let newTen = ten.index(ten.startIndex, offsetBy: 10)
+        
+        let twelve = String(describing: twelvefromNow)
+        let newTwelve = twelve.index(twelve.startIndex, offsetBy: 10)
+        
+        let fifteen = String(describing: fifteenDaysfromNow)
+        let newFifteen = fifteen.index(fifteen.startIndex, offsetBy: 10)
+        
+        var dummyArray:[String] = [ten.substring(to: newTen) + " at 1pm",twelve.substring(to: newTwelve) + " at 3pm and 4pm",fifteen.substring(to: newFifteen) + " at 10am"]
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ScheduleViewCell
         //        cell.textLabel?.text="row#\(indexPath.row)"
@@ -155,7 +197,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alert = UIAlertController(title: "Appointment", message: "We've Requested That Time For Your Physical Therapist.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Appointment", message: "We'll look into that time and get back to you with a provider!", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
